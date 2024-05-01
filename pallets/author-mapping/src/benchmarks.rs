@@ -30,11 +30,13 @@ use parity_scale_codec::Decode;
 /// Create a funded user.
 fn create_funded_user<T: Config>() -> T::AccountId {
 	let user = account("account id", 0u32, 0u32);
+	let mut amount = <<T as Config>::DepositAmount as Get<BalanceOf<T>>>::get();
+	amount = amount + amount;
 	T::DepositCurrency::make_free_balance_be(
 		&user,
-		<<T as Config>::DepositAmount as Get<BalanceOf<T>>>::get(),
+		amount,
 	);
-	T::DepositCurrency::issue(<<T as Config>::DepositAmount as Get<BalanceOf<T>>>::get());
+	T::DepositCurrency::issue(amount);
 	user
 }
 
