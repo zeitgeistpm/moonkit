@@ -394,6 +394,7 @@ fn start_consensus(
 		force_authoring,
 		full_pov_size,
 		additional_digests_provider: (),
+		additional_relay_keys: vec![],
 		collator_key,
 		//authoring_duration: Duration::from_millis(500),
 	};
