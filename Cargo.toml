@@ -312,3 +312,7 @@ overflow-checks = true
 [profile.release]
 opt-level = 3
 panic = "unwind"
+
+[patch."https://github.com/paritytech/polkadot-sdk"]
+# Updated `ParachainInherentDataProvider::create_at` parameters to include additional relay keys
+cumulus-client-parachain-inherent = { git = "https://github.com/zeitgeistpm/polkadot-sdk", branch = "polkadot-stable2409-moonbeam-lazy-migrations" }
